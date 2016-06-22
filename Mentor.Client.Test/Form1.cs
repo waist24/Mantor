@@ -115,9 +115,13 @@ namespace Mentor.Client.Test
             result.Add(Encoding.Unicode.GetBytes("string2"));
             result.Add(Encoding.Unicode.GetBytes("string3"));
 
+            var kkk = result.ToArray();
+
+            //var kjjjk = ( byte[]) kkk;
+
             var flattenedByteArray = result.SelectMany(bytes => bytes).ToArray<byte>();
 
-            //var byteList = flattenedByteArray.ToArray<IEnumerable<byte[]>>();
+            //var byteList = flattenedByteArray.ToArray<byte[]>();
 
             //foreach(var b in byteList)
             //{
