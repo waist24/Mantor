@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Mentor.Framework.Communication
 {
-    public sealed class ServiceContext
+    public class ServiceContextBase
+    {
+        public string UserId { get; set; }
+
+        public string UserName { get; set; }
+
+        public string IP { get; set; }
+
+        public DateTime RequestTime { get; set; }
+    }
+
+    public sealed class ServiceContext : ServiceContextBase
     {
         public string ServiceID { get; set; }
 

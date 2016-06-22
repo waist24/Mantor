@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum.cs" />
-    <Compile Include="GlobalContant.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="MessageEventArgs.cs" />
     <Compile Include="MessageRequest.cs" />
     <Compile Include="MessageResponse.cs" />
