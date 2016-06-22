@@ -79,10 +79,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mentor.Framework.Communication\03.Mentor.Framework.Communication.csproj">
-      <Project>{a7f80e13-ad44-4467-a7b4-f18680b96f53}</Project>
-      <Name>03.Mentor.Framework.Communication</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mentor.Framework.Core\01.Mentor.Framework.Core.csproj">
       <Project>{81855baa-3794-46f8-a2e5-5778cc14befe}</Project>
       <Name>01.Mentor.Framework.Core</Name>

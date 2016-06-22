@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Mentor.Framework.Core", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Mentor.Framework.Data", "Mentor.Framework.Data\02.Mentor.Framework.Data.csproj", "{3A712A5D-D437-483C-8117-2900B6A074B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Mentor.Framework.Communication", "Mentor.Framework.Communication\03.Mentor.Framework.Communication.csproj", "{A7F80E13-AD44-4467-A7B4-F18680B96F53}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Mentor.MessagingServer", "Mentor.MessagingServer\01.Mentor.MessagingServer.csproj", "{FF947E54-34BE-42DB-88FA-AB70D3051A9A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Mentor.CodeSample", "Mentor.CodeSample\02.Mentor.CodeSample.csproj", "{CB1A1AB7-E61D-45DE-92A8-25A378071F6E}"
@@ -20,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Mentor.Server.Test", "Mentor.Server.Test\04.Mentor.Server.Test.csproj", "{7A3EFC4E-3E8E-4A25-9581-E33F5FAFC873}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Mentor.Framework.DataVisualization", "Mentor.Framework.DataVisualization\04.Mentor.Framework.DataVisualization.csproj", "{FA26483C-5298-42DE-9099-974C3F375EB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Mentor.Framework.Messaging", "Mentor.Framework.Messaging\03.Mentor.Framework.Messaging.csproj", "{A7F80E13-AD44-4467-A7B4-F18680B96F53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,6 @@ Global
 		{3A712A5D-D437-483C-8117-2900B6A074B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A712A5D-D437-483C-8117-2900B6A074B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A712A5D-D437-483C-8117-2900B6A074B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7F80E13-AD44-4467-A7B4-F18680B96F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7F80E13-AD44-4467-A7B4-F18680B96F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7F80E13-AD44-4467-A7B4-F18680B96F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7F80E13-AD44-4467-A7B4-F18680B96F53}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF947E54-34BE-42DB-88FA-AB70D3051A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF947E54-34BE-42DB-88FA-AB70D3051A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF947E54-34BE-42DB-88FA-AB70D3051A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,6 +55,10 @@ Global
 		{FA26483C-5298-42DE-9099-974C3F375EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA26483C-5298-42DE-9099-974C3F375EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA26483C-5298-42DE-9099-974C3F375EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7F80E13-AD44-4467-A7B4-F18680B96F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F80E13-AD44-4467-A7B4-F18680B96F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F80E13-AD44-4467-A7B4-F18680B96F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F80E13-AD44-4467-A7B4-F18680B96F53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,7 +66,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{81855BAA-3794-46F8-A2E5-5778CC14BEFE} = {E84721CA-96DB-44B8-883E-2496742286BB}
 		{3A712A5D-D437-483C-8117-2900B6A074B0} = {E84721CA-96DB-44B8-883E-2496742286BB}
-		{A7F80E13-AD44-4467-A7B4-F18680B96F53} = {E84721CA-96DB-44B8-883E-2496742286BB}
 		{FA26483C-5298-42DE-9099-974C3F375EB5} = {E84721CA-96DB-44B8-883E-2496742286BB}
+		{A7F80E13-AD44-4467-A7B4-F18680B96F53} = {E84721CA-96DB-44B8-883E-2496742286BB}
 	EndGlobalSection
 EndGlobal
