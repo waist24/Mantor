@@ -1,4 +1,5 @@
-﻿using Mentor.Framework.Communication;
+﻿
+using Mentor.Framework.Messaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
