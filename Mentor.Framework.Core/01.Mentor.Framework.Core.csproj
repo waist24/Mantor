@@ -47,6 +47,7 @@
     <Folder Include="Extention\" />
     <Folder Include="Helper\" />
     <Folder Include="Log\" />
+    <Folder Include="Math\" />
     <Folder Include="Serialize\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
