@@ -39,7 +39,7 @@ namespace Mentor.Framework.Message
         public void GetResponseAsync(EventHandler<MessageEventArgs> handler, int timeOut = 300)
         {
             if (handler == null)
-                throw new Exception("EventHandler<MessageEventArgs> handler 값이 null입니다. ");
+                throw new Exception("handler 값이 null입니다. ");
 
             var task = Task<List<MessageResponseContext>>.Factory.StartNew 
                 (
