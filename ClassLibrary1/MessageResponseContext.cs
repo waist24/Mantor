@@ -4,15 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mentor.Framework.Messaging
+namespace ClassLibrary1
 {
-    public enum ResultCode
+    class MessageResponseContext
     {
-        SUCCESS,
-        FAIL,
-        CANCEL,
-       
-    };
-
-
+    }
 }

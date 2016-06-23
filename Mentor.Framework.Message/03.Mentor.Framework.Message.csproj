@@ -46,10 +46,10 @@
     <Compile Include="Enum.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="MessageEventArgs.cs" />
-    <Compile Include="MessageRequest.cs" />
-    <Compile Include="MessageResponse.cs" />
+    <Compile Include="MessageClient.cs" />
+    <Compile Include="MessageRequestContext.cs" />
+    <Compile Include="MessageResponseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mentor.Framework.Core\01.Mentor.Framework.Core.csproj">

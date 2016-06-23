@@ -1,5 +1,4 @@
 ﻿
-using Mentor.Framework.Messaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Mentor.Framework.Message;
 namespace Mentor.Client.Test
 {
     public partial class Form1 : Form
@@ -27,8 +27,8 @@ namespace Mentor.Client.Test
         private void button1_Click(object sender, EventArgs e)
         {
             var url = "127.0.0.1";
-            var msgRequest = MessageRequest.Create(url);
-            msgRequest.ServiceContexts.Add(new ServiceContext()
+            var msgClient = MessageClient.Create(url);
+            msgClient.MessageReqeustContexts.Add(new MessageRequestContext()
             {
                 ServiceID = "TypeName#Method1",
                 Arguments = new Dictionary<object, object>()
@@ -39,7 +39,7 @@ namespace Mentor.Client.Test
                         { "Argument4", new string[] { "1", "apple" }},
                     }
             });
-            msgRequest.ServiceContexts.Add(new ServiceContext()
+            msgClient.MessageReqeustContexts.Add(new MessageRequestContext()
             {
                 ServiceID = "TypeName#Method2",
                 Arguments = new Dictionary<object, object>()
@@ -49,23 +49,24 @@ namespace Mentor.Client.Test
                     }
             });
 
-            msgRequest.IsShowProgressWindow = true;
+            msgClient.IsShowProgressWindow = true;
 
             // 동기처리 방식
-            var msgResponse = msgRequest.GetResponse(Global.TimeOut);
-            if (msgResponse.ResultCode == ResultCode.SUCCESS)
+            var msgResponseContext = msgClient.GetResponse(Global.TimeOut);
+            if (msgResponseContext.ResultCode == ResultCode.SUCCESS)
             {
-                var dtData = (DataSet)msgResponse.Results[0];
-                var count = msgResponse.Results[1];
+                var dtData = (DataSet)msgResponseContext.Results[0];
+                var count = msgResponseContext.Results[1];
             }
         }
 
        
         private void button2_Click(object sender, EventArgs e)
         {
+            
             var url = "127.0.0.1";
-            var msgRequest = MessageRequest.Create(url);
-            msgRequest.ServiceContexts.Add(new ServiceContext()
+            var msgClient = MessageClient.Create(url);
+            msgClient.MessageReqeustContexts.Add(new MessageRequestContext()
             {
                 ServiceID = "TypeName#Method1",
                 Arguments = new Dictionary<object, object>()
@@ -76,7 +77,7 @@ namespace Mentor.Client.Test
                         { "Argument4", new string[] { "1", "apple" }},
                     }
             });
-            msgRequest.ServiceContexts.Add(new ServiceContext()
+            msgClient.MessageReqeustContexts.Add(new MessageRequestContext()
             {
                 ServiceID = "TypeName#Method2",
                 Arguments = new Dictionary<object, object>()
@@ -86,19 +87,21 @@ namespace Mentor.Client.Test
                     }
             });
 
-            msgRequest.IsShowProgressWindow = true;
+            msgClient.IsShowProgressWindow = true;
 
             // 비동기처리 방식
             EventHandler<MessageEventArgs> msgHandler = (s, a) =>
             {
                 if (a.Response.ResultCode == ResultCode.SUCCESS)
                 {
-                    //
+                    
                 };
             };
-            msgRequest.GetResponseAsync(msgHandler, Global.TimeOut);
+            msgClient.GetResponseAsync(msgHandler, Global.TimeOut);
 
-            msgRequest.GetResponseAsync(OnProcess, Global.TimeOut);
+            msgClient.GetResponseAsync(OnProcess, Global.TimeOut);
+
+  
         }
 
         private void OnProcess(object sender, MessageEventArgs args)
@@ -111,6 +114,7 @@ namespace Mentor.Client.Test
 
         private void button3_Click(object sender, EventArgs e)
         {
+           /*
             List<byte[]> result = new List<byte[]>();
             result.Add(Encoding.Unicode.GetBytes("string1"));
             result.Add(Encoding.Unicode.GetBytes("string2"));
@@ -128,6 +132,7 @@ namespace Mentor.Client.Test
             //{
             //    var a = Encoding.Unicode.GetString((byte[])b);
             //}
+            */
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mentor.Framework.Messaging
+namespace Mentor.Framework.Message
 {
-    public sealed class MessageResponse
+    public sealed class MessageResponseContext
     {
         public object[] Results { get; set; }
 

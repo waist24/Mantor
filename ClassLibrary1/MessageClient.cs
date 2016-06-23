@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mentor.Framework.Messaging
+namespace ClassLibrary1
 {
-    public static class Global
+    public class MessageClient
     {
-        public const int TimeOut = 300;
     }
 }
