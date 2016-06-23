@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mentor.Framework.Core.Serialize;
+using NATS.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,17 +31,42 @@ namespace Mentor.Framework.Message
             return new MessageClient();
         }
 
-        public MessageResponseContext GetResponse(int timeOut = 300)
+        public List<MessageResponseContext> GetResponse(int timeOut = 300)
         {
-            return null;
+            return this.Request(this.MessageReqeustContexts);
         }
 
         public void GetResponseAsync(EventHandler<MessageEventArgs> handler, int timeOut = 300)
         {
-            
+            if (handler == null)
+                throw new Exception("EventHandler<MessageEventArgs> handler 값이 null입니다. ");
+
+            var task = Task<List<MessageResponseContext>>.Factory.StartNew 
+                (
+                    () => this.Request(this.MessageReqeustContexts )
+                );
+            task.ContinueWith((t) => 
+                    {
+                        if (handler != null)
+                            handler(this, new MessageEventArgs() { MessageResponseContexts = t.Result });
+                    }, TaskScheduler.FromCurrentSynchronizationContext() );
         }
 
-       
+        private List<MessageResponseContext> Request(List<MessageRequestContext> messageReqeustContexts)
+        {
+            Options opts = ConnectionFactory.GetDefaultOptions();
+            opts.Url = Defaults.Url;
+            var data = FastSerializer.Serialize(messageReqeustContexts);
+            List<MessageResponseContext> result = null;
+            using (IConnection c = new ConnectionFactory().CreateConnection(opts))
+            {
+                var msg = c.Request("ADMIN", data);
+                result = FastSerializer.DeSerialize<List<MessageResponseContext>>(msg.Data);
+                c.Flush();
+            }
+            return result;
+        }
+
         public void Cancel()
         {
 

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Mentor.Framework.Message
 {
+    [Serializable]
     public sealed class MessageResponseContext
     {
-        public object[] Results { get; set; }
+        public object Result { get; set; }
 
         public int ElapsedTime { get; set; }
 

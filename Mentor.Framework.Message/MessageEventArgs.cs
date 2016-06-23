@@ -8,6 +8,6 @@ namespace Mentor.Framework.Message
 {
     public class MessageEventArgs
     {
-        public MessageResponseContext Response { get; set; }
+        public List<MessageResponseContext> MessageResponseContexts { get; set; }
     }
 }

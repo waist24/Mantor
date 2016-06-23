@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Mentor.Framework.Message
 {
+    [Serializable]
     public class MessageRequestContext
     {
         public string ServiceID { get; set; }
 
-        public Dictionary<object, object> Arguments { get; set; }
+        public Dictionary<string, object> Arguments { get; set; }
     }
 }
