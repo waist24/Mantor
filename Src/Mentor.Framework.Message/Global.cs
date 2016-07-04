@@ -8,6 +8,8 @@ namespace Mentor.Framework.Message
 {
     public static class Global
     {
-        public const int TimeOut = 300;
+        public const int TimeOut = 60 * 1000 * 10;
+
+        public const string TRANSPORT_CHANNEL = "TRANSPORT_CHANNEL";
     }
 }

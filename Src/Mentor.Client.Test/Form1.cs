@@ -14,6 +14,7 @@ namespace Mentor.Client.Test
 {
     public partial class Form1 : Form
     {
+        private MessageClient msgClient;
         public Form1()
         {
             InitializeComponent();
@@ -27,11 +28,11 @@ namespace Mentor.Client.Test
         private void button1_Click(object sender, EventArgs e)
         {
             var url = "127.0.0.1";
-            var msgClient = MessageClient.Create(url);
+            msgClient = MessageClient.Create(url);
             msgClient.MessageReqeustContexts.Add(new MessageRequestContext()
             {
                 ServiceID = "TypeName#Method1",
-                Arguments = new Dictionary<object, object>()
+                Arguments = new Dictionary<string, object>()
                     {
                         { "Argument1", 1},
                         { "Argument2", "test"},
@@ -42,7 +43,7 @@ namespace Mentor.Client.Test
             msgClient.MessageReqeustContexts.Add(new MessageRequestContext()
             {
                 ServiceID = "TypeName#Method2",
-                Arguments = new Dictionary<object, object>()
+                Arguments = new Dictionary<string, object>()
                     {
                         { "Argument1", 1},
                         { "Argument2", "test"},
@@ -52,24 +53,28 @@ namespace Mentor.Client.Test
             msgClient.IsShowProgressWindow = true;
 
             // 동기처리 방식
-            var msgResponseContext = msgClient.GetResponse(Global.TimeOut);
-            if (msgResponseContext.ResultCode == ResultCode.SUCCESS)
+            var msgResponseContexts = msgClient.GetResponse(5000);
+            if (msgResponseContexts[0].ResultCode == ResultCode.SUCCESS)
             {
-                var dtData = (DataSet)msgResponseContext.Results[0];
-                var count = msgResponseContext.Results[1];
+                var dtData = (DataSet)msgResponseContexts[0].Result;
             }
+            if (msgResponseContexts[1].ResultCode == ResultCode.SUCCESS)
+            {
+                var dtData = (DataSet)msgResponseContexts[1].Result;
+            }
+
         }
 
-       
+
         private void button2_Click(object sender, EventArgs e)
         {
             
             var url = "127.0.0.1";
-            var msgClient = MessageClient.Create(url);
+            msgClient = MessageClient.Create(url);
             msgClient.MessageReqeustContexts.Add(new MessageRequestContext()
             {
                 ServiceID = "TypeName#Method1",
-                Arguments = new Dictionary<object, object>()
+                Arguments = new Dictionary<string, object>()
                     {
                         { "Argument1", 1},
                         { "Argument2", "test"},
@@ -80,36 +85,42 @@ namespace Mentor.Client.Test
             msgClient.MessageReqeustContexts.Add(new MessageRequestContext()
             {
                 ServiceID = "TypeName#Method2",
-                Arguments = new Dictionary<object, object>()
+                Arguments = new Dictionary<string, object>()
                     {
                         { "Argument1", 1},
                         { "Argument2", "test"},
                     }
             });
 
-            msgClient.IsShowProgressWindow = true;
-
-            // 비동기처리 방식
+            //msgClient.IsShowProgressWindow = true;
+            //비동기처리 방식
             EventHandler<MessageEventArgs> msgHandler = (s, a) =>
             {
-                if (a.Response.ResultCode == ResultCode.SUCCESS)
+                if (a.MessageResponseContexts[0].ResultCode == ResultCode.SUCCESS)
                 {
-                    
+
                 };
             };
             msgClient.GetResponseAsync(msgHandler, Global.TimeOut);
+            msgClient.Cancel();
+            //msgClient.GetResponseAsync(OnProcess, Global.TimeOut);
 
-            msgClient.GetResponseAsync(OnProcess, Global.TimeOut);
 
-  
         }
 
         private void OnProcess(object sender, MessageEventArgs args)
         {
-            if (args.Response.ResultCode == ResultCode.SUCCESS)
+            if (args.MessageResponseContexts[0].ResultCode == ResultCode.SUCCESS)
             {
-                //
+
             };
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (msgClient != null)
+                msgClient.Cancel();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -134,5 +145,6 @@ namespace Mentor.Client.Test
             //}
             */
         }
+
     }
 }

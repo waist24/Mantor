@@ -15,6 +15,7 @@ namespace Mentor.Framework.Message
 
         public ResultCode ResultCode { get; set; }
 
+        public string ResultMessage { get; set; }
 
     }
 }
