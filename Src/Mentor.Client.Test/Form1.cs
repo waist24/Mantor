@@ -56,11 +56,12 @@ namespace Mentor.Client.Test
             var msgResponseContexts = msgClient.GetResponse(5000);
             if (msgResponseContexts[0].ResultCode == ResultCode.SUCCESS)
             {
-                var dtData = (DataSet)msgResponseContexts[0].Result;
+                Console.WriteLine ("Finished.");
+                //var dtData = (DataSet)msgResponseContexts[0].Result;
             }
             if (msgResponseContexts[1].ResultCode == ResultCode.SUCCESS)
             {
-                var dtData = (DataSet)msgResponseContexts[1].Result;
+                //var dtData = (DataSet)msgResponseContexts[1].Result;
             }
 
         }
@@ -98,11 +99,11 @@ namespace Mentor.Client.Test
             {
                 if (a.MessageResponseContexts[0].ResultCode == ResultCode.SUCCESS)
                 {
-
+                    MessageBox.Show("Finished.");
                 };
             };
             msgClient.GetResponseAsync(msgHandler, Global.TimeOut);
-            msgClient.Cancel();
+           
             //msgClient.GetResponseAsync(OnProcess, Global.TimeOut);
 
 

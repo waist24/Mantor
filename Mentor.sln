@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{E84721CA-96DB-44B8-883E-2496742286BB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Framework", "03.Framework", "{E84721CA-96DB-44B8-883E-2496742286BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Mentor.Framework.Core", "Src\Mentor.Framework.Core\01.Mentor.Framework.Core.csproj", "{81855BAA-3794-46F8-A2E5-5778CC14BEFE}"
 EndProject
@@ -20,6 +20,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Mentor.MessageManagementConsole", "Src\Mentor.MessageManagementConsole\02.Mentor.MessageManagementConsole.csproj", "{85EF48E7-274F-4105-A132-FDA8F33DB7F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Mentor.Client.Test", "Src\Mentor.Client.Test\04.Mentor.Client.Test.csproj", "{450168E8-E294-4A15-AB13-908FFE5D6B69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Business", "02.Business", "{E65D396F-236E-4BF3-B1D3-6BE33CA7E905}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.UI", "01.UI", "{56D1BBFB-3FEE-4DD5-AE66-C27D8F4B4FC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mentor.Business.Sample", "Src\Mentor.Business.Sample\Mentor.Business.Sample.csproj", "{8A85DBAF-6663-4652-9065-F97EBB2D7136}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +57,10 @@ Global
 		{450168E8-E294-4A15-AB13-908FFE5D6B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{450168E8-E294-4A15-AB13-908FFE5D6B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{450168E8-E294-4A15-AB13-908FFE5D6B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A85DBAF-6663-4652-9065-F97EBB2D7136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A85DBAF-6663-4652-9065-F97EBB2D7136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A85DBAF-6663-4652-9065-F97EBB2D7136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A85DBAF-6663-4652-9065-F97EBB2D7136}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +72,6 @@ Global
 		{FF947E54-34BE-42DB-88FA-AB70D3051A9A} = {2F078320-92D1-4986-9E2C-9CC4B0AA9B1A}
 		{85EF48E7-274F-4105-A132-FDA8F33DB7F5} = {2F078320-92D1-4986-9E2C-9CC4B0AA9B1A}
 		{450168E8-E294-4A15-AB13-908FFE5D6B69} = {E9E5C628-4729-46B0-951E-43E19F55F792}
+		{8A85DBAF-6663-4652-9065-F97EBB2D7136} = {E65D396F-236E-4BF3-B1D3-6BE33CA7E905}
 	EndGlobalSection
 EndGlobal
